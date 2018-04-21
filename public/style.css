@@ -7,3 +7,19 @@ body {
     color: white;
     text-align: center;
 }
+
+#planets_table {
+    /* display: flex;
+    justify-content: space-evenly; */
+    width: 100%;
+    text-align: center;
+}
+
+#planets_table thead {
+    background-color: rgb(16, 169, 230);
+    color: white;
+}
+
+#planets_table tbody {
+    background-color: white;
+}
