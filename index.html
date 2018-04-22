@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Star Wars Planets</title>
     <script src="app.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <body>
     <div id="main-title-container">
@@ -14,11 +15,14 @@
         <ul id="planet_names"></ul>
     </div>
 
+    <div class="search_nav">
+        <input type="text" placeholder="Search">
+    </div>
 
     <!-- TABLE -->
 
     <div id="planets_table_div">
-        <table id="planets_table" class="sortable">
+        <table id="planets_table">
             <thead>
                 <tr>
                     <th>NAME</th>
@@ -36,5 +40,15 @@
         </table>
     </div>
 
+    <!-- PAGINATION -->
+    <div class="pagination">
+        <span id="first">First</span>
+        <button id="back_button">Prev</button>
+        1
+        <button id="forward_button">Next</button>
+        <span id="last">Last</span>
+    </div>
+
+<script src="pagination.js"></script>
 </body>
 </html>

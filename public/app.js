@@ -1,36 +1,49 @@
 const app = function () {
-    const url = "https://swapi.co/api/planets/?format=json"
-    makeRequest(url, requestComplete);
-    console.log("loaded");   
+    let url = "https://swapi.co/api/planets/?format=json";
+    makeRequest(url, requestComplete);  
 };
 
-const makeRequest= function(url, callback) {
+const test = function() {
+    console.log("linked");
+}
+
+const makeRequest = function(url, callback) {
     const request = new XMLHttpRequest();
     request.open("GET", url);
     request.addEventListener("load", callback);
     request.send();
 }
 
-const requestComplete = function() {
-    if(this.status !== 200) return;
+const requestComplete = function () {
+    if (this.status !== 200) return;
     const jsonString = this.responseText;
     const planets = JSON.parse(jsonString);
     populateList(planets);
 }
 
-const populateList = function(planets) {
-    // const ul = document.getElementById('planet_names');
-    const table = document.getElementById('table_body');
-    // planets.results.forEach(function(planet){
-    //     const li = document.createElement("li");
-    //     console.log(planet.name);
+const makeFilmsRequest = function(films_url, callback) {
+    const request = new XMLHttpRequest();
+    request.open("GET", films_url);
+    request.addEventListener("load", callback);
+    request.send();
+}
 
-    //     li.innerText = planet.name + " " + planet.population + " " + planet.diameter;
-    //     ul.appendChild(li);
+const filmsRequestComplete = function () {
+    if (this.status !== 200) return;
+    const jsonString = this.responseText;
+    const film_data = JSON.parse(jsonString);
+    // console.log(film_data)
+    return returnFilms(film_data);
+}
+
+const populateList = function(planets) {
+
+    const table = document.getElementById('table_body');
+
     planets.results.forEach(function(planet) {
         let count = 0;
         const planet_data = document.createElement('tr');
-        const row = table.insertRow(0)
+        const row = table.insertRow(0);
 
         const name = row.insertCell(0);
         const population = row.insertCell(1);
@@ -46,11 +59,20 @@ const populateList = function(planets) {
         rot_period.innerText = planet.rotation_period;
         orb_period.innerText = planet.orbital_period;
         terrain.innerText = planet.terrain;
-        films.innerText = planet.films[0];
 
+        let films_url = planet.films[0] + "?format=json";
+        
+        let film = makeFilmsRequest(films_url, filmsRequestComplete);
+        // films.innerText = film[0].title;
+        console.log(film)
         count++;
 
     });
+};
+
+const returnFilms = function(film_data) {
+    return film_data.title;
 }
 
 document.addEventListener('DOMContentLoaded', app);
+

@@ -1,11 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 62.5%; }
+
 body {
     background-color: rgb(154, 189, 197);
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-family: sans-serif;
 }
 
 #main-title-container {
     background-color: black;
     color: white;
     text-align: center;
+    font-size: 1.8rem;
+    height: 125px;
+    padding-top: 5%;
+}
+
+#search_nav {
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
 #planets_table {
@@ -13,6 +35,7 @@ body {
     justify-content: space-evenly; */
     width: 100%;
     text-align: center;
+    font-size: 1.6rem;
 }
 
 #planets_table thead {
@@ -20,6 +43,15 @@ body {
     color: white;
 }
 
+#planets_table thead tr th {
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
 #planets_table tbody {
     background-color: white;
+}
+
+.pagination {
+    font-size: 1.6rem;
 }
