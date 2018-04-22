@@ -1,3 +1,5 @@
+let rows = document.getElementsByClassName('planet_entry')
+
 const app = function () {
     let url = "https://swapi.co/api/planets/?format=json&page=";
     makeRequest(url, requestComplete);  
@@ -8,7 +10,12 @@ const test = function() {
 }
 
 const clearTable = function() {
-
+    // let tbody = document.querySelector('tbody');
+    // let new_tbody = document.createElement('tbody');
+    // tbody = new_tbody;
+    // // old_tbody.parentNode.replaceChild(new_tbody, old_tbody)
+    const the_table = document.getElementById('planets_table');
+    the_table.getElementsByTagName("tbody")[0].innerHTML = "";
 }
 
 const makeRequest = function(url, callback) {
@@ -50,12 +57,19 @@ const populateList = function(planets) {
         const row = table.insertRow(0);
 
         const name = row.insertCell(0);
+        name.classList.add('planet_entry');
         const population = row.insertCell(1);
+        population.classList.add('planet_entry');
         const diameter = row.insertCell(2);
+        diameter.classList.add('planet_entry');
         const rot_period = row.insertCell(3);
+        rot_period.classList.add('planet_entry');
         const orb_period = row.insertCell(4);
+        orb_period.classList.add('planet_entry');
         const terrain = row.insertCell(5);
+        terrain.classList.add('planet_entry');
         const films = row.insertCell(6);
+        films.classList.add('planet_entry');
 
         name.innerText = planet.name;
         population.innerText = planet.population;

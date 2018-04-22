@@ -55,3 +55,7 @@ h1 {
 .pagination {
     font-size: 1.6rem;
 }
+
+.red {
+    background-color: red;
+}
