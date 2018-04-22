@@ -5,6 +5,7 @@
     <title>Star Wars Planets</title>
     <script src="app.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+   
 </head>
 <body>
     <div id="main-title-container">
@@ -22,7 +23,7 @@
     <!-- TABLE -->
 
     <div id="planets_table_div">
-        <table id="planets_table">
+        <table id="planets_table" class="sortable">
             <thead>
                 <tr>
                     <th>NAME</th>
@@ -44,11 +45,15 @@
     <div class="pagination">
         <span id="first">First</span>
         <button id="back_button">Prev</button>
-        1
+        <span class="current_page">1</span>
+        <span class="next_page">2</span>
+        ...    
         <button id="forward_button">Next</button>
         <span id="last">Last</span>
     </div>
 
 <script src="pagination.js"></script>
+<!-- <script src="sorttable.js"></script> -->
 </body>
+
 </html>

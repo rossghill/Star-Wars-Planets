@@ -56,6 +56,6 @@ h1 {
     font-size: 1.6rem;
 }
 
-.red {
-    background-color: red;
+.current_page {
+    background-color: rgb(143, 142, 142);
 }
