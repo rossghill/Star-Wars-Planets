@@ -1,10 +1,14 @@
 const app = function () {
-    let url = "https://swapi.co/api/planets/?format=json";
+    let url = "https://swapi.co/api/planets/?format=json&page=";
     makeRequest(url, requestComplete);  
 };
 
 const test = function() {
     console.log("linked");
+}
+
+const clearTable = function() {
+
 }
 
 const makeRequest = function(url, callback) {
@@ -60,11 +64,11 @@ const populateList = function(planets) {
         orb_period.innerText = planet.orbital_period;
         terrain.innerText = planet.terrain;
 
-        let films_url = planet.films[0] + "?format=json";
+        // let films_url = planet.films[0] + "?format=json";
         
-        let film = makeFilmsRequest(films_url, filmsRequestComplete);
-        // films.innerText = film[0].title;
-        console.log(film)
+        // let film = makeFilmsRequest(films_url, filmsRequestComplete);
+        // // films.innerText = film[0].title;
+        // console.log(film)
         count++;
 
     });
