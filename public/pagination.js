@@ -2,15 +2,16 @@ import ("./app.js")
 
 test();
 
-var back = document.getElementById('back_button');
-var forward = document.getElementById('forward_button');
-var first = document.getElementById('first');
-var last = document.getElementById('last');
-var currentPage = 1;
+let back = document.getElementById('back_button');
+let forward = document.getElementById('forward_button');
+let first = document.getElementById('first');
+let last = document.getElementById('last');
+let currentPage = 1;
 let url = "https://swapi.co/api/planets/?format=json&page="
 
 first.addEventListener("click", function () {
-    app();
+    makeRequest(url, requestComplete);
+    console.log(url);
 });
 
 back.addEventListener("click", function() {
@@ -35,4 +36,7 @@ forward.addEventListener("click", function () {
 
 last.addEventListener("click", function () {
     console.log("last clicked");
+    let url = "https://swapi.co/api/planets/?format=json&page=7"
+    makeRequest(url, requestComplete);
+    console.log(url);
 });
