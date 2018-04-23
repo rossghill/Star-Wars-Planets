@@ -72,3 +72,11 @@ h1 {
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
+.hidden_row {
+    display: none;
+}
+
+input {
+    width: 10rem;
+}

@@ -8,10 +8,6 @@ const app = function () {
     makeRequest(url, requestComplete);  
 };
 
-const test = function() {
-    console.log("linked");
-}
-
 const clearTable = function() {
     const the_table = document.getElementById('planets_table');
     the_table.getElementsByTagName("tbody")[0].innerHTML = "";
@@ -46,8 +42,8 @@ const filmsRequestComplete = function () {
     const film_data = JSON.parse(jsonString)
     const film_titles = film_data.title;
     film_titles_array.push(film_titles)
-    populateFilms(film_titles_array);
-    console.log(count);
+    // populateFilms(film_titles_array);
+    // console.log(count);
 }
 
 const populateList = function(planets) {
