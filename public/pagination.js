@@ -8,7 +8,7 @@ let currentPage = document.getElementById('current_page');
 let nextPage = document.getElementById('next_page');
 let currentPageNo = 1;
 let nextPageNo = 2;
-let url = "https://swapi.co/api/planets/?format=json&page="
+let url = "https://swapi.co/api/planets/?format=json&page=";
 
 let resetPageNos = function() {
     currentPageNo = 1;
@@ -57,8 +57,7 @@ last.addEventListener("click", function () {
     clearTable();
     currentPage.innerText = "";
     nextPage.innerText = "7";
-    console.log("last clicked");
-    let url = "https://swapi.co/api/planets/?format=json&page=7"
+    let url = "https://swapi.co/api/planets/?format=json&page=7";
     makeRequest(url, requestComplete);
     console.log(url);
 });
