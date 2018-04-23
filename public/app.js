@@ -1,4 +1,7 @@
-let rows = document.getElementsByClassName('planet_entry')
+let count = 0;
+
+let rows = document.getElementsByClassName('planet_entry');
+let titles = null;
 
 const app = function () {
     let url = "https://swapi.co/api/planets/?format=json&page=";
@@ -15,6 +18,14 @@ const clearTable = function() {
 }
 
 const makeRequest = function(url, callback) {
+    console.log(count);
+    const request = new XMLHttpRequest();
+    request.open("GET", url);
+    request.addEventListener("load", callback);
+    request.send();
+}
+
+const makeFilmRequest = function (url, callback) {
     const request = new XMLHttpRequest();
     request.open("GET", url);
     request.addEventListener("load", callback);
@@ -28,79 +39,65 @@ const requestComplete = function () {
     populateList(planets);
 }
 
-const makeFilmsRequest = function(films_url, callback) {
-    const request = new XMLHttpRequest();
-    request.open("GET", films_url);
-    request.addEventListener("load", callback);
-    request.send();
-}
-
 const filmsRequestComplete = function () {
+    const film_titles_array = [];
     if (this.status !== 200) return;
     const jsonString = this.responseText;
-    const film_data = JSON.parse(jsonString);
-    // console.log(film_data)
-    return returnFilms(film_data);
+    const film_data = JSON.parse(jsonString)
+    const film_titles = film_data.title;
+    film_titles_array.push(film_titles)
+    populateFilms(film_titles_array);
+    console.log(count);
 }
 
 const populateList = function(planets) {
-
+   
     const table = document.getElementById('table_body');
     const br = document.createElement("br");
 
     planets.results.forEach(function(planet) {
-        let count = 0;
-        let terrain_count = 0;
-        // const planet_data = document.createElement('tr');
         const row = table.insertRow(0);
+        count++;
+        let film_id = 'film_cell' + count.toString();
+        
+        // console.log(film_id);
 
         const name = row.insertCell(0);
-        // name.classList.add('planet_entry');
         const population = row.insertCell(1);
-        // population.classList.add('planet_entry');
         const diameter = row.insertCell(2);
-        // diameter.classList.add('planet_entry');
         const rot_period = row.insertCell(3);
-        // rot_period.classList.add('planet_entry');
-        const orb_period = row.insertCell(4);
-        // orb_period.classList.add('planet_entry');
-        const terrain = row.insertCell(5);
-        // terrain.classList.add('planet_entry');
+        const orb_period = row.insertCell(4);  
+        const terrain = row.insertCell(5);  
         const films = row.insertCell(6);
-        // films.classList.add('planet_entry');
-
+        films.setAttribute('id', film_id)
+       
         name.innerText = planet.name;
         population.innerText = planet.population;
         diameter.innerText = planet.diameter;
         rot_period.innerText = planet.rotation_period;
         orb_period.innerText = planet.orbital_period;
+        
         let terrain_array = planet.terrain.replace(/,/g, "<br>");
-        console.log(terrain_array);
-
-        // const generateFilms = function() {
-        //     for (i = 0; i < terrain_array.length; i++) {
-        //     return terrain_array[i] + br.innerHTML; 
-        //     }     
-        // }
-
-
-        // terrain.innerText = generateFilms(); 
-
         terrain.innerHTML = terrain_array;
 
-        // let films_url = planet.films[0] + "?format=json";
-        
-        // let film = makeFilmsRequest(films_url, filmsRequestComplete);
-        // // films.innerText = film[0].title;
-        // console.log(film)
-        count++;
-        terrain_count++;
 
+        for (film_url of planet.films) {
+            makeFilmRequest(film_url, filmsRequestComplete);    
+        }
+
+        // let populateFilms = function(film_titles) {
+        //     films.innerHTML = film_titles;
+        // }
+
+        
+        // console.log(count);
     });
 };
 
-const returnFilms = function(film_data) {
-    return film_data.title;
+const populateFilms = function(film_titles_array) {
+    let currentId = 'film_cell' + count.toString();
+    let filmCell = document.getElementById(currentId);  
+    filmCell.innerText = film_titles_array;
 }
 
 document.addEventListener('DOMContentLoaded', app);

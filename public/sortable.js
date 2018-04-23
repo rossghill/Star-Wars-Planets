@@ -1,3 +1,5 @@
+import("./app.js");
+
 /*
   SortTable
   version 2
