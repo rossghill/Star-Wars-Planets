@@ -14,7 +14,7 @@ const clearTable = function() {
 }
 
 const makeRequest = function(url, callback) {
-    console.log(count);
+    // console.log(count);
     const request = new XMLHttpRequest();
     request.open("GET", url);
     request.addEventListener("load", callback);

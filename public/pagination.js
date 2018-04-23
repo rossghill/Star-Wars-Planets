@@ -10,10 +10,16 @@ let currentPageNo = 1;
 let nextPageNo = 2;
 let url = "https://swapi.co/api/planets/?format=json&page="
 
+let resetPageNos = function() {
+    currentPageNo = 1;
+    nextPageNo = 2;
+    currentPage.innerText = "1";
+    nextPage.innerText = "2";
+}
+
 first.addEventListener("click", function () {
     clearTable();
-    let currentPageNo = 1;
-    let nextPageNo = 2;
+    resetPageNos();
     currentPage.innerText = "1";
     nextPage.innerText = "2";
     makeRequest(url, requestComplete);
