@@ -25,9 +25,13 @@ h1 {
     padding-top: 5%;
 }
 
-#search_nav {
+.search_nav {
     padding-top: 1%;
     padding-bottom: 1%;
+}
+
+.search_nav input {
+    border-radius: 10px;
 }
 
 #planets_table {
@@ -36,6 +40,7 @@ h1 {
     width: 100%;
     text-align: center;
     font-size: 1.6rem;
+    padding-bottom: 1.6rem;
 }
 
 #planets_table thead {
@@ -54,8 +59,16 @@ h1 {
 
 .pagination {
     font-size: 1.6rem;
+    display: flex;
+    justify-content: flex-end;
+    background-color: white;
 }
 
-.current_page {
+#current_page {
     background-color: rgb(143, 142, 142);
+}
+
+.pag-element {
+    padding-left: 1rem;
+    padding-right: 1rem;
 }

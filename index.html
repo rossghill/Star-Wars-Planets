@@ -3,6 +3,9 @@
     <head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Star Wars Planets</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
+
     <script src="app.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
    
@@ -43,13 +46,13 @@
 
     <!-- PAGINATION -->
     <div class="pagination">
-        <span id="first">First</span>
-        <button id="back_button">Prev</button>
-        <span class="current_page">1</span>
-        <span class="next_page">2</span>
-        ...    
-        <button id="forward_button">Next</button>
-        <span id="last">Last</span>
+        <span class="pag-element" id="first">First</span>
+        <button class="pag-element" id="back_button"><i class="fas fa-caret-left"></i></button>
+        <span class="pag-element" id="current_page">1</span>
+        <span class="pag-element" id="next_page">2</span>
+        <span class="pag-element">...</span>
+        <button class="pag-element" id="forward_button"><i class="fas fa-caret-right"></i></button>
+        <span class="pag-element" id="last">Last</span>
     </div>
 
 <script src="pagination.js"></script>
