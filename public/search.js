@@ -3,7 +3,7 @@ import("./app.js")
 let searchbutton = document.getElementById('search_button');
 let base_url = "https://swapi.co/api/planets/?search="
 
-searchbutton.addEventListener("click", function() {
+searchbutton.addEventListener("click", function () {
     clearTable();
     resetPageNos();
     let search_term = document.getElementById('search_input').value;
@@ -12,6 +12,6 @@ searchbutton.addEventListener("click", function() {
     generateSearch(search_url);
 });
 
-const generateSearch = function(search_url) {
+const generateSearch = function (search_url) {
     makeRequest(search_url, requestComplete);
 }

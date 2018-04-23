@@ -40,6 +40,13 @@ h3 {
     border-radius: 10px;
 }
 
+#search_button {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.05rem;
+    padding-bottom: 0.05rem;
+}
+
 #planets_table {
     width: 100%;
     text-align: center;
@@ -53,6 +60,10 @@ table tr:last-child td:first-child {
 
 table tr:last-child td:last-child {
     border-bottom-right-radius: 10px;
+}
+
+#planets_table_div {
+    overflow-x:auto;
 }
 
 #planets_table thead {
@@ -94,5 +105,16 @@ table tr:last-child td:last-child {
 }
 
 input {
-    width: 10rem;
+    width: 20%;
+    height: 2.2rem;
+    padding-left: 15px;
+}
+
+input:focus {
+    outline: none;
+}
+
+td {
+    height: 3rem;
+    min-height: 3rem;
 }

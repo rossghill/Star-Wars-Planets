@@ -2,15 +2,15 @@ let count = 0;
 
 const app = function () {
     let url = "https://swapi.co/api/planets/?format=json&page=";
-    makeRequest(url, requestComplete);  
+    makeRequest(url, requestComplete);
 };
 
-const clearTable = function() {
+const clearTable = function () {
     const the_table = document.getElementById('planets_table');
     the_table.getElementsByTagName("tbody")[0].innerHTML = "";
 }
 
-const makeRequest = function(url, callback) {
+const makeRequest = function (url, callback) {
     // console.log(count);
     const request = new XMLHttpRequest();
     request.open("GET", url);
@@ -41,12 +41,12 @@ const filmsRequestComplete = function () {
     // console.log(film_data);
 }
 
-const populateList = function(planets) {
-   
+const populateList = function (planets) {
+
     const table = document.getElementById('table_body');
     const br = document.createElement("br");
 
-    planets.results.forEach(function(planet) {
+    planets.results.forEach(function (planet) {
         const row = table.insertRow(0);
         count++;
         let film_id = 'film_cell' + count.toString();
@@ -55,17 +55,17 @@ const populateList = function(planets) {
         const population = row.insertCell(1);
         const diameter = row.insertCell(2);
         const rot_period = row.insertCell(3);
-        const orb_period = row.insertCell(4);  
-        const terrain = row.insertCell(5);  
+        const orb_period = row.insertCell(4);
+        const terrain = row.insertCell(5);
         const films = row.insertCell(6);
         films.setAttribute('id', film_id);
-       
+
         name.innerText = planet.name;
         population.innerText = planet.population;
         diameter.innerText = planet.diameter;
         rot_period.innerText = planet.rotation_period;
         orb_period.innerText = planet.orbital_period;
-        
+
         let terrain_array = planet.terrain.replace(/,/g, "<br>");
         terrain.innerHTML = terrain_array;
 
@@ -73,19 +73,19 @@ const populateList = function(planets) {
         //     let filmArray = [];
         //     filmArray.push(film_url);
         //     films.innerHTML = filmArray;
-            // makeFilmRequest(film_url, filmsRequestComplete);    
+        // makeFilmRequest(film_url, filmsRequestComplete);    
         // }
 
-        planet.films.forEach(function(film) {
+        planet.films.forEach(function (film) {
             // console.log(film);
             makeFilmRequest(film, filmsRequestComplete);
         });
     });
 };
 
-const populateFilms = function(film_data) {
+const populateFilms = function (film_data) {
     let currentId = 'film_cell' + count.toString();
-    let filmCell = document.getElementById(currentId);  
+    let filmCell = document.getElementById(currentId);
     filmCell.innerText = film_data.title;
 };
 
