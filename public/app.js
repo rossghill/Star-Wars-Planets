@@ -37,7 +37,7 @@ const filmsRequestComplete = function () {
     if (this.status !== 200) return;
     const jsonString = this.responseText;
     const film_data = JSON.parse(jsonString);
-    populateFilms(film_data);
+    // populateFilms(film_data);
     // console.log(film_data);
 }
 
@@ -69,6 +69,11 @@ const populateList = function (planets) {
         let terrain_array = planet.terrain.replace(/,/g, "<br>");
         terrain.innerHTML = terrain_array;
 
+        let films_string = planet.films.toString();
+        let films_array = films_string.replace(/,/g, "<br>");
+        films.innerHTML = films_array;
+        
+
         // for (film_url of planet.films) {
         //     let filmArray = [];
         //     filmArray.push(film_url);
@@ -83,10 +88,11 @@ const populateList = function (planets) {
     });
 };
 
-const populateFilms = function (film_data) {
-    let currentId = 'film_cell' + count.toString();
-    let filmCell = document.getElementById(currentId);
-    filmCell.innerText = film_data.title;
-};
+// const populateFilms = function (film_data) {
+//     console.log(film_data);
+//     let currentId = 'film_cell' + count.toString();
+//     let filmCell = document.getElementById(currentId);
+//     filmCell.innerText = film_data.title;
+// };
 
 document.addEventListener('DOMContentLoaded', app);

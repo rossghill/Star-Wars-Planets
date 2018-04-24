@@ -9,9 +9,9 @@ searchbutton.addEventListener("click", function () {
     let search_term = document.getElementById('search_input').value;
     let search_url = base_url + search_term
     console.log(search_url);
-    generateSearch(search_url);
+    sendSearch(search_url);
 });
 
-const generateSearch = function (search_url) {
+const sendSearch = function (search_url) {
     makeRequest(search_url, requestComplete);
 }
