@@ -1,14 +1,13 @@
 import("./app.js")
 
-let back = document.getElementById('back_button');
-let forward = document.getElementById('forward_button');
-let first = document.getElementById('first');
-let last = document.getElementById('last');
-let currentPage = document.getElementById('current_page');
-let nextPage = document.getElementById('next_page');
+const back = document.getElementById('back_button');
+const forward = document.getElementById('forward_button');
+const first = document.getElementById('first');
+const last = document.getElementById('last');
+const currentPage = document.getElementById('current_page');
+const nextPage = document.getElementById('next_page');
 let currentPageNo = 1;
 let nextPageNo = 2;
-let url = "https://swapi.co/api/planets/?format=json&page=";
 
 let resetPageNos = function () {
     currentPageNo = 1;
@@ -34,9 +33,9 @@ back.addEventListener("click", function () {
         currentPageNo--;
         currentPage.innerText = currentPageNo.toString();
         nextPage.innerText = (currentPageNo + 1).toString();
-        let url = "https://swapi.co/api/planets/?format=json&page=" + currentPageNo;
-        console.log(url);
-        makeRequest(url, requestComplete);
+        let page_url = url + currentPageNo;
+        console.log(page_url);
+        makeRequest(page_url, requestComplete);
     }
 });
 
@@ -47,9 +46,9 @@ forward.addEventListener("click", function () {
         currentPageNo++;
         currentPage.innerText = currentPageNo.toString();
         nextPage.innerText = (currentPageNo + 1).toString();
-        let url = "https://swapi.co/api/planets/?format=json&page=" + currentPageNo;
-        console.log(url);
-        makeRequest(url, requestComplete);
+        let page_url = url + currentPageNo;
+        console.log(page_url);
+        makeRequest(page_url, requestComplete);
     }
 });
 

@@ -1,8 +1,8 @@
 let count = 1;
-let search_url = "https://swapi.co/api/planets/?search=";
+const url = "https://swapi.co/api/planets/?format=json&page=";
+const search_url = "https://swapi.co/api/planets/?search=";
 
-const app = function () {
-    let url = "https://swapi.co/api/planets/?format=json&page=";
+const app = function () {    
     makeRequest(url, requestComplete);
 };
 
@@ -65,11 +65,11 @@ const populateList = function (planets) {
         rot_period.innerText = planet.rotation_period;
         orb_period.innerText = planet.orbital_period;
 
-        let terrain_array = planet.terrain.replace(/,/g, "<br>");
+        const terrain_array = planet.terrain.replace(/,/g, "<br>");
         terrain.innerHTML = terrain_array;
 
-        let films_string = planet.films.toString();
-        let films_array = films_string.split(",");
+        const films_string = planet.films.toString();
+        const films_array = films_string.split(",");
         // console.log(films_array);
 
         for (film_url of films_array) {
