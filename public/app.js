@@ -1,4 +1,5 @@
 let count = 1;
+let search_url = "https://swapi.co/api/planets/?search=";
 
 const app = function () {
     let url = "https://swapi.co/api/planets/?format=json&page=";
