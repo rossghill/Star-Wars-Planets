@@ -39,7 +39,7 @@ The web app can now be used on your browser at: http://localhost:3000/
 
 ## Authors
 
-* **Ross Hill** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Ross Hill** - *Initial work* - [Github](https://github.com/rossghill)
 
 ## License
 
