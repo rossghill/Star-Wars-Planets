@@ -25,14 +25,6 @@ const requestComplete = function () {
     populateList(planets);
 }
 
-const makeFilmRequest = function (url, callback) {
-    const request = new XMLHttpRequest();
-    request.open("GET", url);
-    request.addEventListener("load", callback);
-    request.send();
-}
-
-
 const populateList = function (planets) {
 
     const table = document.getElementById('table_body');
@@ -70,14 +62,14 @@ const populateList = function (planets) {
             const jsonString = this.responseText;
             const film_data = JSON.parse(jsonString);
             const film_title = film_data.title;
-
-            films.innerText += film_title;
+            films.innerHTML += film_title + "<br>";
         }
 
         for (film_url of films_array) {
-            makeFilmRequest(film_url, filmsRequestComplete);
+            makeRequest(film_url, filmsRequestComplete);
         }     
     });
+    
 };
 
 const populateFilms = function(film_data) {
@@ -86,5 +78,7 @@ const populateFilms = function(film_data) {
     // console.log(current_row);
     // console.log(count);
 };
+
+const tr_count = document.querySelectorAll("tr");
 
 document.addEventListener('DOMContentLoaded', app);

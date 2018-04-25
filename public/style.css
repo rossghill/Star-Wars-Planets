@@ -125,6 +125,8 @@ input:focus {
 td {
     height: 5rem;
     min-height: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 tbody tr:hover {
