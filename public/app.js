@@ -32,13 +32,6 @@ const makeFilmRequest = function (url, callback) {
     request.send();
 }
 
-const filmsRequestComplete = function () {
-    if (this.status !== 200) return;
-    const jsonString = this.responseText;
-    const film_data = JSON.parse(jsonString);
-    const film_title = film_data.title;
-    populateFilms(film_title);
-}
 
 const populateList = function (planets) {
 
@@ -71,6 +64,15 @@ const populateList = function (planets) {
         const films_string = planet.films.toString();
         const films_array = films_string.split(",");
         // console.log(films_array);
+
+        const filmsRequestComplete = function () {
+            if (this.status !== 200) return;
+            const jsonString = this.responseText;
+            const film_data = JSON.parse(jsonString);
+            const film_title = film_data.title;
+
+            films.innerText += film_title;
+        }
 
         for (film_url of films_array) {
             makeFilmRequest(film_url, filmsRequestComplete);

@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Npm can be used to install all the dependencies required to run the app. In a terminal window, run:
+Npm can be used to install all the dependencies required to run the app. In a terminal window in the root folder, run:
 
 ```
 npm init
@@ -39,7 +39,7 @@ The web app can now be used on your browser at: http://localhost:3000/
 
 ## Authors
 
-* **Ross Hill** - *Initial work* - [Github](https://github.com/rossghill)
+* **Ross Hill** - [Github](https://github.com/rossghill)
 
 ## License
 
