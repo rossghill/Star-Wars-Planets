@@ -22,27 +22,27 @@ let table = document.getElementById("planets_table");
                notice appears on all copies. 
             */
 
-    var TableIDvalue = "planets_table";    
+    let TableIDvalue = "planets_table";    
            
-    var TableLastSortedColumn = -1;
+    let TableLastSortedColumn = -1;
 
     function SortTable() {
-        var sortColumn = parseInt(arguments[0]);
-            var type = arguments.length > 1 ? arguments[1] : 'T';
-            var dateformat = arguments.length > 2 ? arguments[2] : '';
-            var table = document.getElementById(TableIDvalue);
-            var tbody = table.getElementsByTagName("tbody")[0];
-            var rows = tbody.getElementsByTagName("tr");
-            var arrayOfRows = new Array();
+        let sortColumn = parseInt(arguments[0]);
+            let type = arguments.length > 1 ? arguments[1] : 'T';
+            let dateformat = arguments.length > 2 ? arguments[2] : '';
+            let table = document.getElementById(TableIDvalue);
+            let tbody = table.getElementsByTagName("tbody")[0];
+            let rows = tbody.getElementsByTagName("tr");
+            let arrayOfRows = new Array();
             type = type.toUpperCase();
             dateformat = dateformat.toLowerCase();
-        for (var i = 0, len = rows.length; i < len; i++) {
+        for (let i = 0, len = rows.length; i < len; i++) {
                 arrayOfRows[i] = new Object;
             arrayOfRows[i].oldIndex = i;
-            var celltext = rows[i].getElementsByTagName("td")[sortColumn].innerHTML.replace(/<[^>]*>/g, "");
+            let celltext = rows[i].getElementsByTagName("td")[sortColumn].innerHTML.replace(/<[^>]*>/g, "");
             if (type == 'D') {arrayOfRows[i].value = GetDateSortingKey(dateformat, celltext); }
             else {
-                var re = type == "N" ? /[^\.\-\+\d]/g : /[^a-zA-Z0-9]/g;
+                let re = type == "N" ? /[^\.\-\+\d]/g : /[^a-zA-Z0-9]/g;
             arrayOfRows[i].value = celltext.replace(re, "").substr(0, 25).toLowerCase();
         }
     }
@@ -55,22 +55,22 @@ let table = document.getElementById("planets_table");
             default: arrayOfRows.sort(CompareRowOfText);
         }
     }
-    var newTableBody = document.createElement("tbody");
-        for (var i = 0, len = arrayOfRows.length; i < len; i++) {
+    let newTableBody = document.createElement("tbody");
+        for (let i = 0, len = arrayOfRows.length; i < len; i++) {
                 newTableBody.appendChild(rows[arrayOfRows[i].oldIndex].cloneNode(true));
             }
             table.replaceChild(newTableBody, tbody);
         } // function SortTable()
     
     function CompareRowOfText(a, b) {
-        var aval = a.value;
-            var bval = b.value;
+        let aval = a.value;
+            let bval = b.value;
             return (aval == bval ? 0 : (aval > bval ? 1 : -1));
         } // function CompareRowOfText()
     
     function CompareRowOfNumbers(a, b) {
-        var aval = /\d/.test(a.value) ? parseFloat(a.value) : 0;
-            var bval = /\d/.test(b.value) ? parseFloat(b.value) : 0;
+        let aval = /\d/.test(a.value) ? parseFloat(a.value) : 0;
+            let bval = /\d/.test(b.value) ? parseFloat(b.value) : 0;
             return (aval == bval ? 0 : (aval > bval ? 1 : -1));
         } // function CompareRowOfNumbers()
 

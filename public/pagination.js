@@ -1,9 +1,9 @@
-import("./app.js")
+import("./app.js");
 
-const back = document.getElementById('back_button');
-const forward = document.getElementById('forward_button');
 const first = document.getElementById('first');
 const last = document.getElementById('last');
+const back = document.getElementById('back_button');
+const forward = document.getElementById('forward_button');
 const currentPage = document.getElementById('current_page');
 const nextPage = document.getElementById('next_page');
 let currentPageNo = 1;
@@ -15,7 +15,7 @@ const resetPageNos = function () {
     nextPageNo = 2;
     currentPage.innerText = currentPageNo.toString();
     nextPage.innerText = nextPageNo.toString();
-}
+};
 
 first.addEventListener("click", function () {
     clearTable();
@@ -28,8 +28,7 @@ first.addEventListener("click", function () {
     } 
     currentPage.innerText = currentPageNo.toString();
     nextPage.innerText = nextPageNo.toString();
-    makeRequest(url, requestComplete);
-    
+    makeRequest(url, requestComplete);   
 });
 
 last.addEventListener("click", function () {
@@ -41,7 +40,6 @@ last.addEventListener("click", function () {
         url += currentPageNo;
         makeRequest(url, requestComplete);
     }
-
 });
 
 back.addEventListener("click", function () {
@@ -64,5 +62,4 @@ forward.addEventListener("click", function () {
         let page_url = url + currentPageNo;
         makeRequest(page_url, requestComplete);
     }
-
 });

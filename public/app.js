@@ -27,7 +27,7 @@ const requestComplete = function () {
     populateList(planets);
 }
 
-const populateList = function (planets) {
+const populateList = function(planets) {
 
     const table = document.getElementById('table_body');
     const br = document.createElement("br");
@@ -35,8 +35,8 @@ const populateList = function (planets) {
     planets.results.forEach(function (planet) {
         const row = table.insertRow(0);
         row_count++;
-        console.log(row_count);
 
+        // CREATE EMPTY CELLS
         const name = row.insertCell(0);
         const population = row.insertCell(1);
         const diameter = row.insertCell(2);
@@ -45,15 +45,18 @@ const populateList = function (planets) {
         const terrain = row.insertCell(5);
         const films = row.insertCell(6);
 
+        // POPULATE FIRST 5 CELLS
         name.innerText = planet.name;
         population.innerText = planet.population;
         diameter.innerText = planet.diameter;
         rot_period.innerText = planet.rotation_period;
         orb_period.innerText = planet.orbital_period;
 
+        // POPULATE TERRAIN CELL
         const terrain_array = planet.terrain.replace(/,/g, "<br>");
         terrain.innerHTML = terrain_array;
 
+        // POPULATE FILM CELL
         const films_string = planet.films.toString();
         const films_array = films_string.split(",");
 
@@ -63,15 +66,12 @@ const populateList = function (planets) {
             const film_data = JSON.parse(jsonString);
             const film_title = film_data.title;
             films.innerHTML += film_title + "<br>";
-        }
+        };
 
         for (film_url of films_array) {
             makeRequest(film_url, filmsRequestComplete);
-        }     
-    });
-    
+        };     
+    });   
 };
-
-const tr_count = document.querySelectorAll("tr");
 
 document.addEventListener('DOMContentLoaded', app);
