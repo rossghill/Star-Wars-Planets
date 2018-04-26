@@ -1,10 +1,10 @@
 # Star Wars Planets
 
-Web app that displays a table of planets featured in the Star Wars series using the Swapi API (http://swapi.co/api/planets). They can be sorted by page and a search function allows you to locate specifics planet. 
+Web app that displays a table of planets featured in the Star Wars series using the Swapi API (http://swapi.co/api/planets). They can be sorted by page and a search function allows you to locate specific planets. 
 
 ## Getting Started
 
-Thes instructions below will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Thes instructions below will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 The Swapi API can sometimes be tempremental. Refreshing usually helps!
 
