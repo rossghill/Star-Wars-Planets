@@ -1,4 +1,4 @@
-# Star Wars Planets
+# Star Wars Planets :new_moon:
 
 Web app that displays a table of planets featured in the Star Wars series using the Swapi API (http://swapi.co/api/planets). They can be sorted by page and a search function allows you to locate specific planets. 
 
