@@ -9,7 +9,6 @@ const nextPage = document.getElementById('next_page');
 let currentPageNo = 1;
 let nextPageNo = 2;
 
-
 const resetPageNos = function () {
     currentPageNo = 1;
     nextPageNo = 2;

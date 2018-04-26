@@ -8,4 +8,4 @@ let enter_search = function() {
         let search_term = document.getElementById('search_input').value;
         let url = search_url + search_term;
         makeRequest(url, requestComplete);
-}
+};

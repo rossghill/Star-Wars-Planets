@@ -19,8 +19,7 @@ describe('table functionality', function () {
     }
 
     it('columns should contain 11 rows - including header'), function() {
-        expect(document.querySelector('tr')).to.have.length(11);
-        
+        expect(document.querySelector('tr')).to.have.length(11);    
     }
 
     it('can return searched planet "Hoth" - name'), function() {
@@ -41,6 +40,5 @@ describe('table functionality', function () {
 
     it('can return searched planet "Hoth" - orbital period'), function () {
         first_row_fourth_cell = table.element(by.css('tr[1] td[4]')).to.have.value(549);
-    }
-    
+    }   
 });

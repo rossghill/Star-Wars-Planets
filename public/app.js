@@ -28,7 +28,6 @@ const requestComplete = function () {
 }
 
 const populateList = function(planets) {
-
     const table = document.getElementById('table_body');
     const br = document.createElement("br");
 

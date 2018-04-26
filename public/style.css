@@ -72,7 +72,12 @@ input:focus {
 }
 
 /* TABLE */
+#planets_table_div {   
+    margin-bottom: 0.8%;
+}
+
 #planets_table {
+    overflow-x: auto;
     width: 100%;
     text-align: center;
     font-size: 1.6rem;
@@ -80,14 +85,9 @@ input:focus {
     border-collapse: collapse;
 }
 
-#planets_table_div {
-    overflow-x:auto;
-    margin-bottom: 0.8%;
-}
-
 #planets_table thead {
     background-color: rgb(16, 169, 230);
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 #planets_table thead tr th {
@@ -98,7 +98,7 @@ input:focus {
 }
 
 #planets_table tbody {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
 
 thead tr :nth-child(1) {
@@ -139,7 +139,7 @@ tbody tr:hover {
 }
 
 #current_page {
-    background-color: rgb(143, 142, 142);
+    background-color: rgb(189, 189, 189);
 }
 
 .pag-element {
