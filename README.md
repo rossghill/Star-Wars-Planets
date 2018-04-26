@@ -10,10 +10,11 @@ The Swapi API can sometimes be tempremental. Refreshing usually helps!
 
 ### Prerequisites
 
-Npm can be used to install all the dependencies required to run the app. In a terminal window in the root folder, run:
+Node is used to install all the dependencies required to run the app. Instructions for installing node on your system can be found here: (https://nodejs.org/en/download/package-manager/)
+
+In a terminal window in the root folder, run:
 
 ```
-npm init
 npm install
 ```
 
