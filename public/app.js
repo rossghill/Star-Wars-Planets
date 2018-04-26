@@ -1,12 +1,14 @@
-let count = 1;
-const url = "https://swapi.co/api/planets/?format=json&page=";
+let url = "https://swapi.co/api/planets/?format=json&page=";
 const search_url = "https://swapi.co/api/planets/?search=";
+
+let row_count = 0;
 
 const app = function () {    
     makeRequest(url, requestComplete);
 };
 
 const clearTable = function () {
+    row_count = 0;
     const table_content = document.getElementById('planets_table');
     table_content.getElementsByTagName("tbody")[0].innerHTML = "";
 }
@@ -32,7 +34,8 @@ const populateList = function (planets) {
 
     planets.results.forEach(function (planet) {
         const row = table.insertRow(0);
-        row.classList.add("row_" + count);
+        row_count++;
+        console.log(row_count);
 
         const name = row.insertCell(0);
         const population = row.insertCell(1);
@@ -41,8 +44,6 @@ const populateList = function (planets) {
         const orb_period = row.insertCell(4);
         const terrain = row.insertCell(5);
         const films = row.insertCell(6);
-
-        count++;
 
         name.innerText = planet.name;
         population.innerText = planet.population;
@@ -55,7 +56,6 @@ const populateList = function (planets) {
 
         const films_string = planet.films.toString();
         const films_array = films_string.split(",");
-        // console.log(films_array);
 
         const filmsRequestComplete = function () {
             if (this.status !== 200) return;
@@ -70,13 +70,6 @@ const populateList = function (planets) {
         }     
     });
     
-};
-
-const populateFilms = function(film_data) {
-    console.log(film_data);
-    const current_row = document.querySelector(".row_" + count);
-    // console.log(current_row);
-    // console.log(count);
 };
 
 const tr_count = document.querySelectorAll("tr");

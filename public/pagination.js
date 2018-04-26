@@ -10,7 +10,7 @@ let currentPageNo = 1;
 let nextPageNo = 2;
 
 
-let resetPageNos = function () {
+const resetPageNos = function () {
     currentPageNo = 1;
     nextPageNo = 2;
     currentPage.innerText = currentPageNo.toString();
@@ -20,9 +20,27 @@ let resetPageNos = function () {
 first.addEventListener("click", function () {
     clearTable();
     resetPageNos();
+    if (row_count !== 10) {
+        nextPageNo = currentPageNo + 1;
+    }
+    else {
+        nextPageNo = "";
+    } 
     currentPage.innerText = currentPageNo.toString();
     nextPage.innerText = nextPageNo.toString();
     makeRequest(url, requestComplete);
+    
+});
+
+last.addEventListener("click", function () {
+    if (row_count === 10) {
+        clearTable();
+        currentPageNo = 7;
+        currentPage.innerText = currentPageNo.toString();
+        nextPage.innerText = "";
+        url += currentPageNo;
+        makeRequest(url, requestComplete);
+    }
 
 });
 
@@ -38,7 +56,7 @@ back.addEventListener("click", function () {
 });
 
 forward.addEventListener("click", function () {
-    if (currentPageNo !== 7) {
+    if (row_count === 10) {
         clearTable();
         currentPageNo++;
         currentPage.innerText = currentPageNo.toString();
@@ -46,12 +64,5 @@ forward.addEventListener("click", function () {
         let page_url = url + currentPageNo;
         makeRequest(page_url, requestComplete);
     }
-});
 
-last.addEventListener("click", function () {
-    clearTable();
-    currentPage.innerText = "7";
-    nextPage.innerText = "";
-    let url = "https://swapi.co/api/planets/?format=json&page=7";
-    makeRequest(url, requestComplete);
 });

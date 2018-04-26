@@ -132,3 +132,8 @@ td {
 tbody tr:hover {
     background-color: rgb(220, 216, 230);
 }
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

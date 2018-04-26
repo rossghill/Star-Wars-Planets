@@ -6,6 +6,8 @@ Web app that displays, sorts and searches planets featured in the Star Wars seri
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
+The Swapi API can sometimes be tempremental. Refreshing usually helps!
+
 ### Prerequisites
 
 Npm can be used to install all the dependencies required to run the app. In a terminal window in the root folder, run:
