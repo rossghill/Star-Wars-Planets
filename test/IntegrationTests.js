@@ -42,13 +42,5 @@ describe('table functionality', function () {
     it('can return searched planet "Hoth" - orbital period'), function () {
         first_row_fourth_cell = table.element(by.css('tr[1] td[4]')).to.have.value(549);
     }
-
-    it('can return searched planet "Hoth" - terrain'), function () {
-        first_row_fifth_cell = table.element(by.css('tr[1] td[5]')).to.have.value('Hoth');
-    }
-
-    it('can return searched planet "Hoth" - films'), function () {
-        first_row_sixth_cell = table.element(by.css('tr[1] td[6]')).to.have.value('Hoth');
-    }
     
 });

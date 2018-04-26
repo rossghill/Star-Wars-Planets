@@ -1,10 +1,10 @@
 # Star Wars Planets
 
-Web app that displays, sorts and searches planets featured in the Star Wars series using the Swapi API (http://swapi.co/api/planets).
+Web app that displays a table of planets featured in the Star Wars series using the Swapi API (http://swapi.co/api/planets). They can be sorted by page and a search function allows you to locate specifics planet. 
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Thes instructions below will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 The Swapi API can sometimes be tempremental. Refreshing usually helps!
 
@@ -19,7 +19,7 @@ npm install
 
 To run the express server, use the following command:
 ```
-nodemon server.js
+node server.js
 ```
 
 The web app can now be used on your browser at: http://localhost:3000/
@@ -27,14 +27,15 @@ The web app can now be used on your browser at: http://localhost:3000/
 
 ## Running the tests
 
+Once dependencies have been installed as above, tests can be run from the 'test' folder by using:
 
-### Break down into end to end tests
-
-
-### And coding style tests
-
+```
+mocha IntegrationTests.js
+``` 
 
 ## Built With
+
+HTML, CSS and vanilla Javascript. Also implements:
 
 * [Willmaster Table Sort](https://www.willmaster.com/) - JS Table sorting 
 * [Swapli](http://swapi.co/api/) - Star Wars APIs
